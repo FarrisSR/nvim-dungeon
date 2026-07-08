@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background-color: #1e1e2e;
+    color: #cdd6f4;
+    font-family: 'JetBrains Mono', monospace;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #181825;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #45475a;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #585b70;
+  }
+}
+
+@layer components {
+  /* CRT scanline overlay */
+  .scanlines {
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 0, 0, 0.08) 2px,
+      rgba(0, 0, 0, 0.08) 4px
+    );
+    pointer-events: none;
+  }
+
+  .terminal-prompt {
+    @apply font-mono text-nvim-green text-lg select-none;
+  }
+
+  .health-bar {
+    @apply h-2 bg-nvim-surface0 rounded-full overflow-hidden;
+  }
+
+  .health-bar-fill {
+    @apply h-full rounded-full transition-all duration-500;
+  }
+
+  .key-badge {
+    @apply font-mono text-xs bg-nvim-surface1 text-nvim-yellow px-1.5 py-0.5 rounded border border-nvim-surface2;
+  }
+
+  .combat-log-entry {
+    @apply font-mono text-xs leading-relaxed;
+  }
+
+  .panel {
+    @apply border border-nvim-surface1 rounded-lg bg-nvim-mantle;
+  }
+}
